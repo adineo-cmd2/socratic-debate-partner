@@ -1,38 +1,122 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import FallacyBadge from '../components/session/FallacyBadge.astro';
----
-<BaseLayout title="Socratic Debate Partner">
-  <section class="py-10 text-center">
-    <h1 class="serif-q text-4xl font-bold text-amber">It never tells you the answer.</h1>
-    <p class="mx-auto mt-4 max-w-xl">
-      A Socratic debate partner that questions your arguments, names the fallacies,
-      and maps how your reasoning grows — one question at a time.
-    </p>
-    <a
-      href="/session"
-      class="mt-6 inline-block rounded bg-amber px-6 py-3 font-bold text-navy"
-    >
-      Start debating
-    </a>
-  </section>
 
-  <section class="mt-8">
-    <h2 class="serif-q text-2xl text-amber">Example exchange</h2>
-    <div class="mt-4 flex flex-col gap-3">
-      <div class="flex justify-end">
-        <div class="max-w-[75%] rounded bg-white/10 px-3 py-2">
-          <p>Everyone I know agrees taxes should be abolished, so they obviously should be.</p>
-          <div class="mt-1">
-            <FallacyBadge fallacy_type="appeal to popularity" confidence={0.82} snippet="Everyone I know agrees" />
-          </div>
-        </div>
-      </div>
-      <div class="flex justify-start">
-        <div class="max-w-[75%] border-l-4 border-amber px-3 py-2">
-          <p class="serif-q italic">If everyone you knew agreed the earth was flat, would that make it so?</p>
-        </div>
+const base = (import.meta.env.BASE_URL ?? '/').replace(/\/$/, '');
+---
+<BaseLayout title="Socratic Debate Partner" description="A Socratic debate partner that questions your arguments, names the fallacies, and maps how your reasoning grows — one question at a time.">
+<section class="hero">
+  <span class="hero-badge">Socratic method · live fallacy flags</span>
+  <h1 class="display-1">It never tells you the answer.<br/><span class="grad-text">It sharpens the question.</span></h1>
+  <p class="lead">A Socratic debate partner that questions your arguments, names the fallacies, and maps how your reasoning grows — one question at a time.</p>
+  <div class="hero-ctas">
+<a href={`${base}/session`} class="btn btn-accent btn-lg">Start debating</a>
+<a href={`${base}/reasoning-graph`} class="btn btn-ghost btn-lg">See your reasoning graph</a>
+  </div>
+  <div class="hero-meta">
+<span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v4M12 17v4M3 12h4M17 12h4M5.6 5.6l2.8 2.8M15.6 15.6l2.8 2.8M18.4 5.6l-2.8 2.8M8.4 15.6l-2.8 2.8"/></svg>Works with no API keys — mock Socratic mode</span>
+<span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>Single local user · no account</span>
+<span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>localhost:8001 backend</span>
+  </div>
+</section>
+
+<section class="section">
+  <div class="grid-3">
+<article class="card card-hover p-5 reveal">
+  <div class="card-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+  <h3 class="text-[1.02rem] font-semibold" style="letter-spacing:-0.01em">Debate sessions</h3>
+  <p class="mt-2 text-sm leading-relaxed" style="color: var(--ink-soft)">State a position and the partner replies only with questions — the way Socrates would have.</p>
+</article>
+<article class="card card-hover p-5 reveal">
+  <div class="card-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/><path d="M12 9v4M12 17h.01"/></svg></div>
+  <h3 class="text-[1.02rem] font-semibold" style="letter-spacing:-0.01em">Fallacy detection</h3>
+  <p class="mt-2 text-sm leading-relaxed" style="color: var(--ink-soft)">Appeal to popularity, false dilemma and more — each flag quotes your exact words with a confidence score.</p>
+</article>
+<article class="card card-hover p-5 reveal">
+  <div class="card-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="5" cy="6" r="3"/><circle cx="19" cy="6" r="3"/><circle cx="12" cy="18" r="3"/><path d="M7.5 8 10 15M16.5 8 14 15M8 6h8"/></svg></div>
+  <h3 class="text-[1.02rem] font-semibold" style="letter-spacing:-0.01em">Reasoning graph</h3>
+  <p class="mt-2 text-sm leading-relaxed" style="color: var(--ink-soft)">Claims become nodes, logical steps become edges. Watch your argument take shape as you debate.</p>
+</article>
+<article class="card card-hover p-5 reveal">
+  <div class="card-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 15v3M12 10v8M17 6v12"/></svg></div>
+  <h3 class="text-[1.02rem] font-semibold" style="letter-spacing:-0.01em">Thinking profile</h3>
+  <p class="mt-2 text-sm leading-relaxed" style="color: var(--ink-soft)">Neutral analytics on your habits — top fallacies and reasoning depth over time.</p>
+</article>
+<article class="card card-hover p-5 reveal">
+  <div class="card-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+  <h3 class="text-[1.02rem] font-semibold" style="letter-spacing:-0.01em">Labels, not judgments</h3>
+  <p class="mt-2 text-sm leading-relaxed" style="color: var(--ink-soft)">Fallacy labels point at arguments, never at you. Neutral tools for clearer thinking.</p>
+</article>
+<article class="card card-hover p-5 reveal">
+  <div class="card-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h7l-1 8 10-12h-7l1-8z"/></svg></div>
+  <h3 class="text-[1.02rem] font-semibold" style="letter-spacing:-0.01em">Offline mock mode</h3>
+  <p class="mt-2 text-sm leading-relaxed" style="color: var(--ink-soft)">No API keys? The backend ships a mock Socratic mode so you can debate immediately.</p>
+</article>
+  </div>
+</section>
+
+<section class="section reveal">
+  <div class="section-head">
+    <p class="eyebrow">Showcase</p>
+    <h2 class="section-title">An example exchange</h2>
+    <p class="lead">Fallacies are flagged on your message, quoted and scored — then questioned.</p>
+  </div>
+
+<div class="card p-5 sm:p-6" style="max-width: 46rem; margin: 0 auto">
+  <div class="flex justify-end">
+    <div class="max-w-[80%] rounded-2xl rounded-br-sm px-4 py-3" style="background: var(--panel-2); border: 1px solid var(--edge)">
+      <p class="text-sm leading-relaxed">Everyone I know agrees taxes should be abolished, so they obviously should be.</p>
+      <div class="mt-2">
+        <FallacyBadge fallacy_type="appeal to popularity" confidence={0.82} snippet="Everyone I know agrees" />
       </div>
     </div>
-  </section>
+  </div>
+  <div class="mt-4 flex justify-start">
+    <div class="max-w-[80%] rounded-2xl rounded-bl-sm px-4 py-3" style="background: var(--accent-soft); border: 1px solid var(--accent)">
+      <p class="serif-q italic text-[0.98rem] leading-relaxed">If everyone you knew agreed the earth was flat, would that make it so?</p>
+    </div>
+  </div>
+</div>
+
+</section>
+
+<section class="section">
+  <div class="section-head">
+    <p class="eyebrow">How it works</p>
+    <h2 class="section-title">Three steps, no fluff</h2>
+  </div>
+  <div class="grid-3">
+<div class="step reveal">
+  <div class="step-num">01</div>
+  <h3 class="mt-2 text-[1rem] font-semibold">Pick a topic</h3>
+  <p class="mt-1.5 text-sm leading-relaxed" style="color: var(--ink-soft)">Anything you hold a position on — taxes, housing, homework.</p>
+</div>
+<div class="step reveal">
+  <div class="step-num">02</div>
+  <h3 class="mt-2 text-[1rem] font-semibold">Defend it</h3>
+  <p class="mt-1.5 text-sm leading-relaxed" style="color: var(--ink-soft)">The partner probes with questions and flags fallacies inline as you write.</p>
+</div>
+<div class="step reveal">
+  <div class="step-num">03</div>
+  <h3 class="mt-2 text-[1rem] font-semibold">Watch it grow</h3>
+  <p class="mt-1.5 text-sm leading-relaxed" style="color: var(--ink-soft)">Every claim joins the reasoning graph; your profile shows depth over time.</p>
+</div>
+  </div>
+</section>
+
+<section class="section reveal">
+  <div class="note-band">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+    <p>It questions, never answers. Fallacy labels are neutral thinking tools — they point at arguments, never at you.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="cta-band reveal">
+    <h2 class="section-title">Ready to defend a position?</h2>
+    <p class="lead" style="margin: 0.8rem auto 1.8rem">Pick a topic, state your case, and let the questions begin.</p>
+    <a href={`${base}/session`} class="btn btn-accent btn-lg">Start debating</a>
+  </div>
+</section>
+
 </BaseLayout>

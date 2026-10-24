@@ -4,9 +4,34 @@ export default {
   theme: {
     extend: {
       colors: {
-        navy: '#0f1f3c',
-        amber: '#d9a441',
-      },
+        "navy": "#0d1b36",
+        "amber": {
+                "DEFAULT": "#e2b155",
+                "50": "#fdf6e7",
+                "100": "#faedb2",
+                "200": "#f5e089",
+                "300": "#eecb5f",
+                "600": "#c98d2b",
+                "900": "#3c2a07"
+        }
+},
+      fontFamily: {
+        "display": [
+                "'Cormorant Garamond'",
+                "Georgia",
+                "serif"
+        ],
+        "body": [
+                "'Inter'",
+                "system-ui",
+                "sans-serif"
+        ],
+        "mono": [
+                "'JetBrains Mono'",
+                "ui-monospace",
+                "monospace"
+        ]
+},
     },
   },
   plugins: [],
