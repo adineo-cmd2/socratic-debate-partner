@@ -1,0 +1,15 @@
+---
+interface Props {
+  fallacy_type: string;
+  snippet?: string;
+  confidence?: number;
+}
+
+const { fallacy_type, snippet, confidence } = Astro.props;
+---
+<span
+  class="mr-1 inline-block rounded border border-amber px-2 py-0.5 text-xs text-amber"
+  title={snippet ?? fallacy_type}
+>
+  {fallacy_type}{confidence != null ? ` (${Math.round(confidence * 100)}%)` : ''}
+</span>

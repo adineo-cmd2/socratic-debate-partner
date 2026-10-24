@@ -1,0 +1,18 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import FallacyBarChart from '../components/charts/FallacyBarChart';
+import DepthTrendChart from '../components/charts/DepthTrendChart';
+---
+<BaseLayout title="Your Profile">
+  <h1 class="serif-q mb-4 text-3xl text-amber">Your Profile</h1>
+  <p class="mb-6 text-sm opacity-80">
+    Neutral notes on your thinking habits — fallacy labels point at arguments,
+    never at you.
+  </p>
+
+  <h2 class="serif-q mb-2 text-2xl text-amber">Top fallacies</h2>
+  <FallacyBarChart client:visible />
+
+  <h2 class="serif-q mb-2 mt-8 text-2xl text-amber">Depth over time</h2>
+  <DepthTrendChart client:visible />
+</BaseLayout>

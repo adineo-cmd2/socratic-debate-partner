@@ -1,0 +1,8 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import DebateThread from '../components/session/DebateThread';
+---
+<BaseLayout title="Debate Session">
+  <h1 class="serif-q mb-4 text-3xl text-amber">Debate Session</h1>
+  <DebateThread client:load />
+</BaseLayout>

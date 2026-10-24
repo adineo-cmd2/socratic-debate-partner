@@ -1,0 +1,38 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import FallacyBadge from '../components/session/FallacyBadge.astro';
+---
+<BaseLayout title="Socratic Debate Partner">
+  <section class="py-10 text-center">
+    <h1 class="serif-q text-4xl font-bold text-amber">It never tells you the answer.</h1>
+    <p class="mx-auto mt-4 max-w-xl">
+      A Socratic debate partner that questions your arguments, names the fallacies,
+      and maps how your reasoning grows — one question at a time.
+    </p>
+    <a
+      href="/session"
+      class="mt-6 inline-block rounded bg-amber px-6 py-3 font-bold text-navy"
+    >
+      Start debating
+    </a>
+  </section>
+
+  <section class="mt-8">
+    <h2 class="serif-q text-2xl text-amber">Example exchange</h2>
+    <div class="mt-4 flex flex-col gap-3">
+      <div class="flex justify-end">
+        <div class="max-w-[75%] rounded bg-white/10 px-3 py-2">
+          <p>Everyone I know agrees taxes should be abolished, so they obviously should be.</p>
+          <div class="mt-1">
+            <FallacyBadge fallacy_type="appeal to popularity" confidence={0.82} snippet="Everyone I know agrees" />
+          </div>
+        </div>
+      </div>
+      <div class="flex justify-start">
+        <div class="max-w-[75%] border-l-4 border-amber px-3 py-2">
+          <p class="serif-q italic">If everyone you knew agreed the earth was flat, would that make it so?</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

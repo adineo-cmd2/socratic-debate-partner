@@ -1,0 +1,22 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+<BaseLayout title="Settings">
+  <h1 class="serif-q mb-4 text-3xl text-amber">Settings</h1>
+
+  <section>
+    <h2 class="serif-q mb-2 text-xl text-amber">Account</h2>
+    <p class="text-sm opacity-80">No account needed — single local user.</p>
+  </section>
+
+  <section class="mt-8">
+    <h2 class="serif-q mb-2 text-xl text-amber">Preferences</h2>
+    <p class="text-sm opacity-80">Backend: <span id="api-base" class="mono-n"></span></p>
+  </section>
+</BaseLayout>
+
+<script>
+  const BASE = import.meta.env.PUBLIC_API_BASE ?? 'http://localhost:8001';
+  const base = document.getElementById('api-base');
+  if (base) base.textContent = BASE;
+</script>

@@ -1,0 +1,21 @@
+---
+const links = [
+  { href: '/', label: 'Home' },
+  { href: '/session', label: 'Session' },
+  { href: '/reasoning-graph', label: 'Graph' },
+  { href: '/profile', label: 'Profile' },
+  { href: '/settings', label: 'Settings' },
+];
+---
+<nav class="border-b border-amber">
+  <div class="mx-auto flex max-w-4xl items-center justify-between px-4 py-3">
+    <a href="/" class="serif-q text-lg font-bold text-amber">Socratic Debate</a>
+    <ul class="flex gap-4">
+      {links.map((l) => (
+        <li>
+          <a href={l.href} class="text-sm hover:text-amber">{l.label}</a>
+        </li>
+      ))}
+    </ul>
+  </div>
+</nav>
